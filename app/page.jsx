@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import React, { useRef } from "react";
+import Link from "next/link";
 import {
   motion,
   useScroll,
@@ -10,7 +11,7 @@ import {
 } from "framer-motion";
 
 export default function Home() {
-  const sectionRef = useRef(null); // ✅ real ref object
+  const sectionRef = useRef(null);
   const prefersReduced = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -42,6 +43,8 @@ export default function Home() {
         <h1>Let Us Clean MN</h1>
         <p>Home</p>
         <p>About</p>
+        <Link href="/cleaning-services">Services</Link>
+        <p>Contact</p>
       </header>
       <main>
         <section ref={sectionRef} className={styles.mainSection}>
@@ -53,22 +56,52 @@ export default function Home() {
             aria-hidden
           />
           <div className={styles.mainContent}>
-            <h1>Professional Cleaning Services in Minneapolis, MN</h1>
-            <h2>
-              Reliable house cleaning and office cleaning for homes and
-              businesses across Minneapolis and surrounding areas.
-            </h2>
-
-            <div>
-              <div>Book A Cleaning</div>
-              <div>Free Quote</div>
+            <div className={styles.heroText}>
+              <h1>
+                Let Us Clean MN – Trusted Minneapolis House Cleaning Services
+              </h1>
+              <h2>
+                A locally owned cleaning company serving homes and small
+                businesses across the Twin Cities. From one-time deep cleans to
+                regular maintenance plans, our team makes your space shine — so
+                you can spend time on what matters most.
+              </h2>
             </div>
+          </div>
+          <div style={{ zIndex: 2 }}>
+            <div>Book A Cleaning</div>
+            <div>Free Quote</div>
           </div>
         </section>
 
         <div style={{ height: "800px" }}>
-          <h2>Let Us Clean MN Cleaning Services</h2>
-          <div className={styles.serviceGrid}></div>
+          <h1>Let Us Clean MN Cleaning Services</h1>
+          <div className={styles.serviceGrid}>
+            <div className={styles.service}>
+              <Image></Image>
+              <h2>Residential Cleaning Services in Minneapolis</h2>
+              <p>
+                Regular home cleaning, deep cleans, and custom schedules to fit
+                your lifestyle.
+              </p>
+            </div>
+            <div className={styles.service}>
+              <Image></Image>
+              <h2>Move-In & Move-Out Cleaning</h2>
+              <p>Perfect for renters, landlords, and realtors.</p>
+            </div>
+            <div className={styles.service}>
+              <h2>Office & Commercial Cleaning</h2>
+              <p>
+                Reliable cleaning for small offices, studios, and storefronts.
+              </p>
+            </div>
+            <div className={styles.service}>
+              <Image></Image>
+              <h2>Post-Construction Cleaning</h2>
+              <p>We’ll handle the dust so you can enjoy your new space.</p>
+            </div>
+          </div>
         </div>
       </main>
     </div>

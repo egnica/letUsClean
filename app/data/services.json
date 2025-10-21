@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "residential-cleaning",
+    "title": "Residential Cleaning Services in Minneapolis–St. Paul",
+    "shortTitle": "Residential Cleaning",
+    "tagline": "Weekly, bi-weekly, or monthly plans",
+    "blurb": "Regular home cleaning, deep cleans, and custom schedules to fit your lifestyle.",
+    "cityTarget": [
+      "Minneapolis",
+      "St. Paul",
+      "Edina",
+      "Richfield",
+      "Bloomington"
+    ],
+    "includes": [
+      "Kitchen surfaces & appliances (exterior)",
+      "Bathrooms sanitized",
+      "Dusting & baseboards",
+      "Floors vacuumed & mopped"
+    ],
+    "addOns": [
+      "Inside fridge",
+      "Inside oven",
+      "Windows (interior)",
+      "Laundry fold"
+    ],
+    "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/residential-cleaning.webp",
+    "schemaServiceType": "Residential Cleaning",
+    "ctaLabel": "Get Quote"
+  },
+  {
+    "slug": "move-out-cleaning",
+    "title": "Move-Out Cleaning in the Twin Cities",
+    "shortTitle": "Move-Out Cleaning",
+    "tagline": "Perfect for renters, landlords & realtors",
+    "blurb": "Detailed, top-to-bottom clean to help you get your deposit back or list fast.",
+    "cityTarget": [
+      "Minneapolis",
+      "St. Paul",
+      "Edina",
+      "Richfield",
+      "Bloomington"
+    ],
+    "includes": [
+      "Cabinets & drawers (interior)",
+      "Appliances (interior/exterior)",
+      "Baseboards, doors & trim",
+      "Bathrooms & fixtures deep clean"
+    ],
+    "addOns": ["Garage sweep", "Patio sweep", "Carpet shampoo (partner)"],
+    "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/move-out-cleaning.webp",
+    "schemaServiceType": "Move-out Cleaning",
+    "ctaLabel": "Get Move-Out Quote"
+  },
+  {
+    "slug": "office-cleaning",
+    "title": "Office & Commercial Cleaning in Minneapolis–St. Paul",
+    "shortTitle": "Office & Commercial",
+    "tagline": "Reliable cleaning for small offices & studios",
+    "blurb": "Nightly, weekly, or custom schedules that keep your workplace spotless.",
+    "cityTarget": [
+      "Minneapolis",
+      "St. Paul",
+      "Edina",
+      "Richfield",
+      "Bloomington"
+    ],
+    "includes": [
+      "Lobbies, desks & meeting rooms",
+      "Trash & recycling",
+      "Restrooms sanitized",
+      "Floors vacuumed & mopped"
+    ],
+    "addOns": [
+      "Supply restock",
+      "Glass & partitions",
+      "Kitchen breakroom detail"
+    ],
+    "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/office-cleaning.webp",
+    "schemaServiceType": "Commercial Cleaning",
+    "ctaLabel": "Get Office Quote"
+  },
+  {
+    "slug": "post-construction-cleaning",
+    "title": "Post-Construction Cleaning in Minneapolis–St. Paul",
+    "shortTitle": "Post-Construction",
+    "tagline": "We’ll handle the dust so you can move in",
+    "blurb": "Fine-dust removal, detail work, and multi-pass cleaning after projects.",
+    "cityTarget": [
+      "Minneapolis",
+      "St. Paul",
+      "Edina",
+      "Richfield",
+      "Bloomington"
+    ],
+    "includes": [
+      "Fine dust wipe-downs",
+      "Detail vacuuming (vents, tracks)",
+      "Windows & sills",
+      "Fixtures & finishes polished"
+    ],
+    "addOns": ["HEPA air scrub (partner)", "Exterior windows (partner)"],
+    "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/post-construction-cleaning.webp",
+    "schemaServiceType": "Post-construction Cleaning",
+    "ctaLabel": "Get Post-Construction Quote"
+  }
+]
