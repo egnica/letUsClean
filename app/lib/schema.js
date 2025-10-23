@@ -12,28 +12,6 @@ export function serviceSchema(svc) {
   const area =
     svc.cityTarget && svc.cityTarget.length ? svc.cityTarget : SITE.area;
 
-  const offerCatalog =
-    (svc.includes && svc.includes.length) || (svc.addOns && svc.addOns.length)
-      ? {
-          "@type": "OfferCatalog",
-          name: "Cleaning Packages & Add-ons",
-          itemListElement: [
-            ...(svc.includes || []).map((name) => ({ "@type": "Offer", name })),
-            ...(svc.addOns || []).map((name) => ({ "@type": "Offer", name })),
-          ],
-        }
-      : undefined;
-
-  const offers =
-    typeof svc.priceFrom === "number"
-      ? {
-          "@type": "Offer",
-          price: svc.priceFrom,
-          priceCurrency: "USD",
-          url: `${SITE.url}/cleaning-services/${svc.slug}`,
-        }
-      : undefined;
-
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -48,8 +26,6 @@ export function serviceSchema(svc) {
       image: SITE.logo,
       telephone: SITE.phone,
     },
-    hasOfferCatalog: offerCatalog,
-    offers,
   };
 }
 

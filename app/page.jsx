@@ -1,4 +1,5 @@
 "use client";
+//Home Page
 import Image from "next/image";
 import styles from "./page.module.css";
 import React, { useRef } from "react";
@@ -45,6 +46,8 @@ export default function Home() {
         <p>About</p>
         <Link href="/cleaning-services">Services</Link>
         <p>Contact</p>
+        <p>FAQ</p>
+        <p>Blog</p>
       </header>
       <main>
         <section ref={sectionRef} className={styles.mainSection}>

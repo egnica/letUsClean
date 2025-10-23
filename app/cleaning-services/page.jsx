@@ -1,3 +1,4 @@
+//cleaning-service page
 import services from "../data/services.json";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,49 +27,28 @@ export default function CleaningServicesPage() {
   ];
 
   return (
-    <main >
+    <main>
       <header>
-        <h1 >
-          Cleaning Services in Minneapolis & St. Paul
-        </h1>
-        <p >
+        <h1>Cleaning Services in Minneapolis & St. Paul</h1>
+        <p>
           Locally owned & insured. Eco-friendly products. Flexible scheduling.
         </p>
       </header>
 
-      <section >
+      <section>
         {services.map((s) => {
           const quoteHref = `/quote?service=${encodeURIComponent(s.slug)}`;
           const detailsHref = `/cleaning-services/${s.slug}`;
           return (
-            <article
-              key={s.slug}
-            
-            >
-              {s.image && (
-                <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden"></div>
-              )}
-              <h2 className="text-xl font-semibold">
-                {s.shortTitle || s.title}
-              </h2>
-              {s.tagline && (
-                <p className="text-sm text-neutral-600">{s.tagline}</p>
-              )}
-              <p className="mt-2">{s.blurb}</p>
+            <article key={s.slug}>
+              {s.image && <div></div>}
+              <h2>{s.shortTitle || s.title}</h2>
+              {s.tagline && <p>{s.tagline}</p>}
+              <p>{s.blurb}</p>
 
-              <div className="mt-auto flex gap-3 pt-4">
-                <Link
-                  href={quoteHref}
-                  className="inline-block rounded-lg px-4 py-2 border bg-black text-white"
-                >
-                  {s.ctaLabel || "Get Quote"}
-                </Link>
-                <Link
-                  href={detailsHref}
-                  className="inline-block rounded-lg px-4 py-2 border"
-                >
-                  Learn more
-                </Link>
+              <div>
+                <Link href={quoteHref}>{s.ctaLabel || "Get Quote"}</Link>
+                <Link href={detailsHref}>Learn more</Link>
               </div>
             </article>
           );
