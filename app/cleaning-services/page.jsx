@@ -28,6 +28,9 @@ export default function CleaningServicesPage() {
 
   return (
     <main>
+      <nav>
+        <Link href="/">← Home</Link>
+      </nav>
       <header>
         <h1>Cleaning Services in Minneapolis & St. Paul</h1>
         <p>

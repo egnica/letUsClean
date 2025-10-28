@@ -1,18 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
-  title: "Let Us Clean MN | Residential & Commercial Cleaning in Minneapolis, MN",
+  title:
+    "Let Us Clean MN | Residential & Commercial Cleaning in Minneapolis, MN",
   description:
     "Let Us Clean MN is a locally owned cleaning company providing professional house cleaning, apartment cleaning, and office cleaning services throughout Minneapolis and the Twin Cities area. Affordable rates, trusted cleaners, and spotless results—book your cleaning today!",
   keywords: [
@@ -50,9 +43,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <head>
+        {/* Adobe Fonts embed link */}
+        <link rel="stylesheet" href="https://use.typekit.net/zjf3nkl.css" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

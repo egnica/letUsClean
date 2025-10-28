@@ -1,11 +1,21 @@
 .page {
 }
+
 .mainSection {
   position: relative;
   overflow: hidden;
   min-height: 500px;
   display: grid;
   place-items: center;
+}
+.overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
 }
 .mainImage {
   position: absolute;
@@ -16,24 +26,55 @@
   will-change: transform;
   transform: translateZ(0);
 }
+.imgOverlay {
+  z-index: 1;
+  position: absolute;
+}
 .mainContent {
   position: relative;
   display: grid;
   z-index: 1;
   text-align: center;
-  color: #fff;
+  color: #e6e6e6;
   padding: 2rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 .heroText {
   margin: auto;
   text-align: left;
   width: 70%;
-
-  background-color: rgba(0, 0, 0, 0.385);
   padding: 20px 40px;
   border-radius: 10px;
 }
+.mainh1 {
+  text-align: center;
+  font-size: 4rem;
+  margin: 0;
+}
+.secondh1 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.servicesCont {
+  padding: 2%;
+  text-align: center;
+}
+.servicesTitle {
+  padding: 6% 0 3% 0;
+  display: grid;
+  justify-content: center;
+}
+.servicesTitle h1 {
+  color: rgb(9, 40, 91);
+  margin: 0;
+  font-weight: bold;
+  font-size: 3rem;
+}
+.servicesTitle p {
+  font-size: larger;
+}
+
 .serviceGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -45,11 +86,29 @@
   flex-direction: column; /* ensures everything stacks top-down */
   justify-content: flex-start; /* makes all content start from the top */
   align-items: center; /* keep images/text centered horizontally */
-  padding: 2%;
+  padding: 10% 2% 5% 2%;
   text-align: center;
+
+  background: linear-gradient(145deg, #ffff, #f0f0f0);
+  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+}
+
+.serviceText {
+  margin: 5%;
+  padding: 10px;
+  height: 100%;
 }
 .service h2 {
   font-size: 1.1em;
+  margin-bottom: 0;
+}
+.service h3 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500;
+}
+.footer {
+  height: 400px;
 }
 
 /* MOBILE */

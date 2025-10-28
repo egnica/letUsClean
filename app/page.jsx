@@ -2,10 +2,12 @@
 //Home Page
 import Image from "next/image";
 import styles from "./page.module.css";
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import services from "./data/services.json";
 import Link from "next/link";
 import {
   motion,
+  AnimatePresence,
   useScroll,
   useTransform,
   useReducedMotion,
@@ -14,6 +16,7 @@ import {
 export default function Home() {
   const sectionRef = useRef(null);
   const prefersReduced = useReducedMotion();
+  const [changeIndex, setChangeIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -32,6 +35,22 @@ export default function Home() {
     prefersReduced ? [1, 1] : [1.15, 1.05] // starts zoomed-in a bit
   );
 
+  const imageArray = [
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean1.webp",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean2.webp",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean3.webp",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setChangeIndex((prevIndex) =>
+        prevIndex + 1 >= imageArray.length ? 0 : prevIndex + 1
+      );
+    }, 9000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={styles.page}>
       <header>
@@ -49,64 +68,75 @@ export default function Home() {
         <p>FAQ</p>
         <p>Blog</p>
       </header>
+
       <main>
         <section ref={sectionRef} className={styles.mainSection}>
+          <div className={styles.overlay}></div>
           <motion.img
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean1.webp"
-            alt="main"
-            className={styles.mainImage}
-            style={{ y, scale }}
-            aria-hidden
+            initial={{ opacity: 0.4, scale: 0, rotate: 0 }}
+            animate={{ opacity: 1, scale: 1, rotate: 1 }}
+            className={styles.imgOverlay}
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/shape-cover.png"
           />
+          <AnimatePresence mode="wait">
+            <motion.img
+              src={imageArray[changeIndex]}
+              alt="main"
+              className={styles.mainImage}
+              style={{ y, scale }}
+              aria-hidden
+              key={changeIndex}
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0.5 }}
+            />
+          </AnimatePresence>
           <div className={styles.mainContent}>
             <div className={styles.heroText}>
-              <h1>
-                Let Us Clean MN – Trusted Minneapolis House Cleaning Services
+              <h1 className={styles.mainh1}>Let Us Clean MN</h1>
+              <h1 className={styles.secondh1}>
+                Trusted Minneapolis House Cleaning Services
               </h1>
+              <br />
+              <br />
               <h2>
                 A locally owned cleaning company serving homes and small
                 businesses across the Twin Cities. From one-time deep cleans to
-                regular maintenance plans, our team makes your space shine — so
+                regular maintenance plans, our team makes your space shine so
                 you can spend time on what matters most.
               </h2>
             </div>
-          </div>
-          <div style={{ zIndex: 2 }}>
             <div>Book A Cleaning</div>
             <div>Free Quote</div>
           </div>
         </section>
 
-        <div style={{ height: "800px" }}>
-          <h1>Let Us Clean MN Cleaning Services</h1>
+        <div className={styles.servicesCont}>
+          <div className={styles.servicesTitle}>
+            <h1>Let Us Clean MN Cleaning Services</h1>
+            <p>
+              Qualified professionals for each service you are looking for!!
+            </p>
+            <hr style={{ width: "60%" }} />
+          </div>
+
           <div className={styles.serviceGrid}>
-            <div className={styles.service}>
-              <Image></Image>
-              <h2>Residential Cleaning Services in Minneapolis</h2>
-              <p>
-                Regular home cleaning, deep cleans, and custom schedules to fit
-                your lifestyle.
-              </p>
-            </div>
-            <div className={styles.service}>
-              <Image></Image>
-              <h2>Move-In & Move-Out Cleaning</h2>
-              <p>Perfect for renters, landlords, and realtors.</p>
-            </div>
-            <div className={styles.service}>
-              <h2>Office & Commercial Cleaning</h2>
-              <p>
-                Reliable cleaning for small offices, studios, and storefronts.
-              </p>
-            </div>
-            <div className={styles.service}>
-              <Image></Image>
-              <h2>Post-Construction Cleaning</h2>
-              <p>We’ll handle the dust so you can enjoy your new space.</p>
-            </div>
+            {Object.values(services).map((item, index) => (
+              <div key={index} className={styles.service}>
+                <img width="90%" src={item.image} />
+                <div className={styles.serviceText}>
+                  <h2>{item.shortTitle}</h2>
+                  <h3>{item.tagline}</h3>
+                  <p>{item.blurb}</p>
+
+                  <div>{item.ctaLabel}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>
+      <footer className={styles.footer}></footer>
     </div>
   );
 }
