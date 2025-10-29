@@ -1,6 +1,20 @@
 .page {
 }
-
+.titleHeader1 {
+  font-family: "adobe-handwriting-ernie", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.titleHeader2 {
+  font-family: "adobe-handwriting-frank", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.titleHeader3 {
+  font-family: "adobe-handwriting-tiffany", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .mainSection {
   position: relative;
   overflow: hidden;
@@ -29,6 +43,7 @@
 .imgOverlay {
   z-index: 1;
   position: absolute;
+  width: 30%;
 }
 .mainContent {
   position: relative;
@@ -36,13 +51,13 @@
   z-index: 1;
   text-align: center;
   color: #e6e6e6;
-  padding: 2rem;
+
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 .heroText {
   margin: auto;
   text-align: left;
-  width: 70%;
+  width: 80%;
   padding: 20px 40px;
   border-radius: 10px;
 }
@@ -56,6 +71,69 @@
   padding: 0;
   margin: 0;
 }
+
+.twoBtn {
+  display: flex;
+  margin: auto;
+  gap: 20px;
+  padding-right: 5%;
+}
+.heroButton {
+  background: none;
+  background-color: #1111119d;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 10px 20px;
+  font-size: 18px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.heroButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #3498db;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.heroButton:hover::before {
+  left: 0;
+}
+
+.heroButton:hover {
+  color: white;
+}
+.belowMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 6%;
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+.belowMain img {
+  margin: auto;
+}
+.belowMainText {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.belowMainText h1 {
+  font-weight: 500;
+  font-size: 3rem;
+}
+.belowMainText h2 {
+  font-weight: 500;
+}
+
 .servicesCont {
   padding: 2%;
   text-align: center;
@@ -111,10 +189,27 @@
   height: 400px;
 }
 
+/*TABLET*/
+@media (max-width: 1075px) {
+  .belowMain {
+    grid-template-columns: 1fr;
+    margin: auto;
+    text-align: center;
+  }
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .serviceGrid {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+  .belowMain img {
+    width: 90%;
+    margin: auto;
+  }
+  .belowMain h1 {
+    text-align: center;
+    font-size: 2.5rem;
   }
 }

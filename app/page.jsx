@@ -54,14 +54,18 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <header>
-        <Image
-          alt="let us clean logo"
-          height={140}
-          width={140}
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp"
-        />
-        <h1>Let Us Clean MN</h1>
-        <p>Home</p>
+        <Link href={"/"}>
+          <Image
+            alt="let us clean logo"
+            height={100}
+            width={100}
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp"
+          />
+        </Link>
+        <h1 className={styles.titleHeader1} style={{ paddingRight: "50px" }}>
+          Let Us Clean MN
+        </h1>
+        <Link href="/">Home</Link>
         <p>About</p>
         <Link href="/cleaning-services">Services</Link>
         <p>Contact</p>
@@ -99,6 +103,22 @@ export default function Home() {
               </h1>
               <br />
               <br />
+            </div>
+            <div className={styles.twoBtn}>
+              <div className={styles.heroButton}>Book A Cleaning</div>
+              <div className={styles.heroButton}>Free Quote</div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.belowMain}>
+          <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/4PannelClean.webp" />
+          <div className={styles.belowMainText}>
+            <div style={{ margin: "auto" }}>
+              <h1>
+                <strong style={{ color: "#7b5c8d" }}>Experience</strong> a
+                cleaner, healthier{" "}
+                <strong style={{ color: "#deb344" }}>environment.</strong>
+              </h1>
               <h2>
                 A locally owned cleaning company serving homes and small
                 businesses across the Twin Cities. From one-time deep cleans to
@@ -106,12 +126,9 @@ export default function Home() {
                 you can spend time on what matters most.
               </h2>
             </div>
-            <div>Book A Cleaning</div>
-            <div>Free Quote</div>
           </div>
         </section>
-
-        <div className={styles.servicesCont}>
+        <section className={styles.servicesCont}>
           <div className={styles.servicesTitle}>
             <h1>Let Us Clean MN Cleaning Services</h1>
             <p>
@@ -130,11 +147,14 @@ export default function Home() {
                   <p>{item.blurb}</p>
 
                   <div>{item.ctaLabel}</div>
+                  <Link href={`/cleaning-services/${item.slug}`}>
+                    More Info
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
       </main>
       <footer className={styles.footer}></footer>
     </div>
