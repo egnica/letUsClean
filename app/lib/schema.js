@@ -1,11 +1,56 @@
 // lib/schema.js
 const SITE = {
   name: "Let Us Clean MN",
-  url: "https://letuscleanmn.com", // ← update
+  url: "https://letuscleanmn.com",
   logo: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp",
   area: ["Minneapolis", "St. Paul", "Twin Cities"],
   phone: "+1-612-991-2832",
+  // add what you have:
+  sameAs: [
+    // e.g. Google Business Profile, Facebook, Instagram
+    // "https://maps.google.com/?cid=YOUR_GBP_CID",
+    "https://www.facebook.com/profile.php?id=61566621594891",
+    // "https://www.instagram.com/letuscleanmn"
+  ],
+  // optional postal address (recommended for LocalBusiness)
+  address: {
+    streetAddress: "", // leave empty if you’re service-area only
+    addressLocality: "Ham Lake",
+    addressRegion: "MN",
+    postalCode: "",
+    addressCountry: "US",
+  },
+  // if you’re service-area only, define a polygon or named areas instead of a street.
+  area: [
+    "Minneapolis",
+    "St. Paul",
+    "Hennepin County",
+    "Ramsey County",
+    "Dakota County",
+    "Anoka County",
+    "Washington County",
+    "Scott County",
+    "Carver County",
+  ],
+
+  openingHours: [
+    // "Mo-Fr 09:00-17:00", "Sa 10:00-14:00"
+  ],
 };
+
+export { SITE };
+
+export function twinCitiesGeoCircle(radiusKm = 50) {
+  return {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 44.9778, // roughly downtown Minneapolis
+      longitude: -93.265,
+    },
+    geoRadius: `${radiusKm} km`,
+  };
+}
 
 export function serviceSchema(svc) {
   const serviceType = svc.schemaServiceType || svc.shortTitle || svc.title;
@@ -54,6 +99,14 @@ export function breadcrumbSchema(items) {
     })),
   };
 }
+export function websiteSchema({ url, name }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url,
+    name,
+  };
+}
 
 export function webPageSchema({ name, description, url }) {
   return {
@@ -63,4 +116,76 @@ export function webPageSchema({ name, description, url }) {
     description,
     url,
   };
+}
+
+// NEW: Organization (generic) – use if you don’t want LocalBusiness
+export function organizationSchema({
+  name = SITE.name,
+  url = SITE.url,
+  logo = SITE.logo,
+  sameAs = SITE.sameAs,
+}) {
+  const node = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name,
+    url,
+    logo,
+  };
+  if (sameAs && sameAs.length) node.sameAs = sameAs;
+  return node;
+}
+
+export function localBusinessSchema({
+  name = SITE.name,
+  url = SITE.url,
+  logo = SITE.logo,
+  telephone = SITE.phone,
+  sameAs = SITE.sameAs,
+  address = SITE.address,
+  openingHours = SITE.openingHours,
+  areaServed = SITE.area,
+  serviceAreaGeo, // NEW: pass a GeoCircle or GeoShape
+}) {
+  const node = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name,
+    url,
+    image: logo,
+    logo,
+    telephone,
+    areaServed,
+  };
+  if (address && (address.addressLocality || address.streetAddress)) {
+    node.address = { "@type": "PostalAddress", ...address };
+  }
+  if (openingHours?.length) node.openingHours = openingHours;
+  if (sameAs?.length) node.sameAs = sameAs;
+
+  // attach service area as a Place with geo
+  if (serviceAreaGeo) {
+    node.areaServed = [
+      ...(Array.isArray(areaServed) ? areaServed : [areaServed]),
+      {
+        "@type": "Place",
+        name: "Twin Cities Metro",
+        geo: serviceAreaGeo,
+      },
+    ];
+  }
+  return node;
+}
+
+// NEW: Person (for founders)
+export function personSchema({ name, jobTitle, image, sameAs = [] }) {
+  const node = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+  };
+  if (jobTitle) node.jobTitle = jobTitle;
+  if (image) node.image = image;
+  if (sameAs.length) node.sameAs = sameAs;
+  return node;
 }

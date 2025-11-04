@@ -1,10 +1,20 @@
 "use client";
-//Home Page
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import React, { useRef, useEffect, useState } from "react";
-import services from "./data/services.json";
 import Link from "next/link";
+import Script from "next/script";
+import {
+  SITE,
+  webPageSchema,
+  localBusinessSchema,
+  twinCitiesGeoCircle,
+} from "./lib/schema";
+// Adjust this path to where your file actually lives:
+import services from "./data/services.json";
+
+import Nav from "./components/nav";
 import {
   motion,
   AnimatePresence,
@@ -14,6 +24,20 @@ import {
 } from "framer-motion";
 
 export default function Home() {
+  // ✅ Page-specific JSON-LD
+  const schemas = [
+    webPageSchema({
+      name: "Home",
+      // description: metadata.description,
+      url: SITE.url,
+    }),
+    localBusinessSchema({
+      serviceAreaGeo: twinCitiesGeoCircle(55),
+      // openingHours: ["Mo-Fr 08:00-18:00", "Sa 09:00-14:00"],
+      // priceRange: "$$",
+    }),
+  ];
+
   const sectionRef = useRef(null);
   const prefersReduced = useReducedMotion();
   const [changeIndex, setChangeIndex] = useState(0);
@@ -32,7 +56,7 @@ export default function Home() {
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    prefersReduced ? [1, 1] : [1.15, 1.05] // starts zoomed-in a bit
+    prefersReduced ? [1, 1] : [1.15, 1.05]
   );
 
   const imageArray = [
@@ -43,110 +67,111 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setChangeIndex((prevIndex) =>
-        prevIndex + 1 >= imageArray.length ? 0 : prevIndex + 1
-      );
+      setChangeIndex((prev) => (prev + 1 >= imageArray.length ? 0 : prev + 1));
     }, 9000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className={styles.page}>
-      <header>
-        <Link href={"/"}>
-          <Image
-            alt="let us clean logo"
-            height={100}
-            width={100}
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp"
-          />
-        </Link>
-        <h1 className={styles.titleHeader1} style={{ paddingRight: "50px" }}>
-          Let Us Clean MN
-        </h1>
-        <Link href="/">Home</Link>
-        <p>About</p>
-        <Link href="/cleaning-services">Services</Link>
-        <p>Contact</p>
-        <p>FAQ</p>
-        <p>Blog</p>
-      </header>
-
+      <Nav />
       <main>
         <section ref={sectionRef} className={styles.mainSection}>
-          <div className={styles.overlay}></div>
+          <div className={styles.overlay} />
           <motion.img
             initial={{ opacity: 0.4, scale: 0, rotate: 0 }}
             animate={{ opacity: 1, scale: 1, rotate: 1 }}
             className={styles.imgOverlay}
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/shape-cover.png"
+            alt=""
+            aria-hidden
           />
           <AnimatePresence mode="wait">
             <motion.img
+              key={changeIndex}
               src={imageArray[changeIndex]}
-              alt="main"
+              alt="Clean, organized living space in Minneapolis"
               className={styles.mainImage}
               style={{ y, scale }}
-              aria-hidden
-              key={changeIndex}
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0.5 }}
             />
           </AnimatePresence>
+
           <div className={styles.mainContent}>
             <div className={styles.heroText}>
+              {/* ✅ Single H1 for SEO */}
               <h1 className={styles.mainh1}>Let Us Clean MN</h1>
-              <h1 className={styles.secondh1}>
+              <h2 className={styles.secondh1}>
                 Trusted Minneapolis House Cleaning Services
-              </h1>
+              </h2>
               <br />
               <br />
             </div>
+
             <div className={styles.twoBtn}>
-              <div className={styles.heroButton}>Book A Cleaning</div>
-              <div className={styles.heroButton}>Free Quote</div>
+              {/* ✅ Use buttons/links */}
+              <Link className={styles.heroButton} href="/book">
+                Book A Cleaning
+              </Link>
+              <Link className={styles.heroButton} href="/quote">
+                Free Quote
+              </Link>
             </div>
           </div>
         </section>
+
         <section className={styles.belowMain}>
-          <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/4PannelClean.webp" />
+          <img
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/4PannelClean.webp"
+            alt="Before and after cleaning panels"
+          />
           <div className={styles.belowMainText}>
             <div style={{ margin: "auto" }}>
-              <h1>
+              <h2 className={styles.belowMainH2}>
                 <strong style={{ color: "#7b5c8d" }}>Experience</strong> a
-                cleaner, healthier{" "}
+                cleaner, clutter-free{" "}
                 <strong style={{ color: "#deb344" }}>environment.</strong>
-              </h1>
-              <h2>
+              </h2>
+              <p className={styles.lead}>
                 A locally owned cleaning company serving homes and small
                 businesses across the Twin Cities. From one-time deep cleans to
                 regular maintenance plans, our team makes your space shine so
                 you can spend time on what matters most.
-              </h2>
+              </p>
             </div>
           </div>
         </section>
+
         <section className={styles.servicesCont}>
           <div className={styles.servicesTitle}>
-            <h1>Let Us Clean MN Cleaning Services</h1>
-            <p>
-              Qualified professionals for each service you are looking for!!
-            </p>
+            <h2 className={styles.belowMainH2}>
+              Let Us Clean MN Cleaning Services
+            </h2>
+            <p>Qualified professionals for each service you’re looking for!</p>
             <hr style={{ width: "60%" }} />
           </div>
 
           <div className={styles.serviceGrid}>
             {Object.values(services).map((item, index) => (
               <div key={index} className={styles.service}>
-                <img width="90%" src={item.image} />
+                <img width="90%" src={item.image} alt={item.shortTitle} />
                 <div className={styles.serviceText}>
-                  <h2>{item.shortTitle}</h2>
-                  <h3>{item.tagline}</h3>
+                  <h3>{item.shortTitle}</h3>
+                  <p className={styles.serviceTag}>{item.tagline}</p>
                   <p>{item.blurb}</p>
 
-                  <div>{item.ctaLabel}</div>
+                  {item.ctaHref ? (
+                    <Link className={styles.cta} href={item.ctaHref}>
+                      {item.ctaLabel || "Book Now"}
+                    </Link>
+                  ) : (
+                    <span className={styles.ctaDisabled}>
+                      {item.ctaLabel || "Learn more below"}
+                    </span>
+                  )}
+
                   <Link href={`/cleaning-services/${item.slug}`}>
                     More Info
                   </Link>
@@ -155,7 +180,16 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        {/* ✅ JSON-LD via next/script */}
+        <Script
+          id="home-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        />
       </main>
+
       <footer className={styles.footer}></footer>
     </div>
   );

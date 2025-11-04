@@ -26,7 +26,8 @@
     ],
     "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/residential-cleaning.webp",
     "schemaServiceType": "Residential Cleaning",
-    "ctaLabel": "Get Quote"
+    "ctaLabel": "Get Quote",
+    "faq": [{ "q": "whats is that", "a": "this is that" }]
   },
   {
     "slug": "move-out-cleaning",

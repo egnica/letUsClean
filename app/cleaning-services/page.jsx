@@ -2,7 +2,9 @@
 import services from "../data/services.json";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../page.module.css";
 import { breadcrumbSchema, webPageSchema } from "../lib/schema";
+import Nav from "../components/nav";
 
 export const metadata = {
   title: "Cleaning Services in Minneapolis & St. Paul | Let Us Clean MN",
@@ -27,31 +29,37 @@ export default function CleaningServicesPage() {
   ];
 
   return (
-    <main>
-      <nav>
-        <Link href="/">← Home</Link>
-      </nav>
-      <header>
+    <main className={styles.backDropServicePage}>
+      <div style={{ color: "#ffff" }}>
+        <Nav />
+      </div>
+      <header className={styles.servicesHeader}>
         <h1>Cleaning Services in Minneapolis & St. Paul</h1>
         <p>
           Locally owned & insured. Eco-friendly products. Flexible scheduling.
         </p>
       </header>
 
-      <section>
+      <section className={styles.servicesContain}>
         {services.map((s) => {
           const quoteHref = `/quote?service=${encodeURIComponent(s.slug)}`;
           const detailsHref = `/cleaning-services/${s.slug}`;
           return (
-            <article key={s.slug}>
+            <article className={styles.indServiceCont} key={s.slug}>
+              <img src={s.image} alt={s.shortTitle + " picture"} />
               {s.image && <div></div>}
               <h2>{s.shortTitle || s.title}</h2>
               {s.tagline && <p>{s.tagline}</p>}
               <p>{s.blurb}</p>
 
-              <div>
-                <Link href={quoteHref}>{s.ctaLabel || "Get Quote"}</Link>
-                <Link href={detailsHref}>Learn more</Link>
+              <div className={styles.linkCont}>
+                <Link href={quoteHref} className={styles.serviceLink}>
+                  {s.ctaLabel || "Get Quote"}
+                </Link>
+                <br />
+                <Link href={detailsHref}>
+                  <span className={styles.serviceLink}>Learn more</span>
+                </Link>
               </div>
             </article>
           );

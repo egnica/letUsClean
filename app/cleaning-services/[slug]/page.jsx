@@ -2,6 +2,8 @@
 import services from "../../data/services.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Nav from "../../components/nav";
+import styles from "../../page.module.css";
 import {
   serviceSchema,
   faqSchema,
@@ -50,61 +52,69 @@ export default function ServicePage({ params }) {
   const quoteHref = `/quote?service=${encodeURIComponent(service.slug)}`;
 
   return (
-    <main>
+    <main className={styles.serviceMain}>
+      <div className={styles.colorOverlay}></div>
+      <Nav />
       <nav>
         <Link href="/cleaning-services">← All Services</Link>
       </nav>
-
-      <h1>{service.title}</h1>
-      <p>{service.blurb}</p>
-
-      {service.includes?.length ? (
-        <section>
-          <h2>What’s included</h2>
-          <ul>
-            {service.includes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {service.addOns?.length ? (
-        <section>
-          <h2>Popular add-ons</h2>
-          <ul>
-            {service.addOns.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {service.faq?.length ? (
-        <section>
-          <h2>FAQs</h2>
-          <div>
-            {service.faq.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
+      <div className={styles.servicePageCont}>
+        <div className={styles.splitSections}>
+          <div className={styles.upperService}>
+            <h1>{service.title}</h1>
+            <h3>{service.tagline}</h3>
+            <p>{service.blurb}</p>
           </div>
-        </section>
-      ) : null}
+          <img src={service.image} />
+        </div>
+        <div className={styles.splitSections}>
+          {service.includes?.length ? (
+            <section>
+              <h2>What’s included</h2>
+              <ul>
+                {service.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
-      {service.cityTarget?.length ? (
-        <section>
-          <h2>Service area</h2>
-          <p>{service.cityTarget.join(", ")}</p>
-        </section>
-      ) : null}
+          {service.addOns?.length ? (
+            <section>
+              <h2>Popular add-ons</h2>
+              <ul>
+                {service.addOns.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+        </div>
+        {service.faq?.length ? (
+          <section>
+            <h2>FAQs</h2>
+            <div>
+              {service.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
-      <div>
-        <Link href={quoteHref}>{service.ctaLabel || "Get Quote"}</Link>
+        {service.cityTarget?.length ? (
+          <section>
+            <h2>Service area</h2>
+            <p>{service.cityTarget.join(", ")}</p>
+          </section>
+        ) : null}
+
+        <div>
+          <Link href={quoteHref}>{service.ctaLabel || "Get Quote"}</Link>
+        </div>
       </div>
-
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(schemas)}
       </script>

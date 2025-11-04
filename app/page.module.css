@@ -1,5 +1,133 @@
+/* HOME PAGE**/
+
 .page {
 }
+
+.navItem {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.35rem 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+/* underline */
+.navItem::after {
+  content: "";
+  position: absolute;
+  bottom: -0.6rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #7b5c8d;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+.serviceNav {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
+  padding: 0;
+  padding-top: 2px;
+}
+.navItem:hover::after,
+.dropDownCont:hover > .serviceNav::after {
+  transform: scaleX(1);
+}
+
+/* ===== dropdown container ===== */
+.dropDownCont {
+  position: relative;
+  display: flex;
+  padding-bottom: 1.25rem;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.35rem 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+/* ===== dropdown list ===== */
+.dropItems {
+  position: absolute;
+  top: 100%; /* closer to the trigger */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  min-width: 180px; /* wider so it's easier to hit */
+  z-index: 20;
+}
+
+/* ===== dropdown links inside ===== */
+.dropLink {
+  text-decoration: none;
+  color: #282828;
+  padding: 0.5rem 0.75rem;
+  display: block; /* full clickable row */
+  text-align: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  font-weight: 400;
+}
+
+.dropLink:hover {
+  background: rgba(123, 92, 141, 0.12);
+  color: #7b5c8d;
+}
+
+.mobileNav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .naBar {
+    display: grid;
+    gap: 0;
+
+    text-align: center;
+  }
+  .dropItems {
+    visibility: hidden;
+  }
+  .navItem::after {
+    width: 0%;
+    height: 0;
+  }
+  .mobileNav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobileNav a {
+    font-size: 1.2rem;
+  }
+}
+
+/*HOME*/
+
 .titleHeader1 {
   font-family: "adobe-handwriting-ernie", sans-serif;
   font-weight: 400;
@@ -126,12 +254,12 @@
   justify-content: center;
   align-items: center;
 }
-.belowMainText h1 {
-  font-weight: 500;
+
+.belowMainH2 {
   font-size: 3rem;
 }
-.belowMainText h2 {
-  font-weight: 500;
+.lead {
+  font-size: 1.4rem;
 }
 
 .servicesCont {
@@ -211,5 +339,135 @@
   .belowMain h1 {
     text-align: center;
     font-size: 2.5rem;
+  }
+}
+
+/* CLEANING-SERVICES PAGE */
+.backDropServicePage {
+  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/whiteBackPaper.webp");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.servicesHeader {
+  text-align: center;
+  margin: 0;
+  background-color: #ffff;
+  padding: 3% 0;
+}
+.servicesHeader h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+.servicesContain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 2%;
+}
+
+.indServiceCont {
+  text-align: center;
+  padding: 5%;
+  margin: 4%;
+  border: 1px solid #bebebe9b;
+  background: linear-gradient(145deg, #ffff, #f0f0f0);
+  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+}
+.indServiceCont img {
+  width: 50%;
+}
+.serviceLink {
+  color: #3498db;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.serviceLink:hover {
+  transform: scale(1.03);
+  color: #db1fc2;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+  .servicesContain {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SERVICE PAGE (INDIVIDUAL PAGES)*/
+.serviceMain {
+  position: relative; /* enable z-index */
+  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/whiteBackPaper.webp");
+  background-attachment: fixed; /* note: buggy on iOS; see note below */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+.colorOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(248, 248, 248, 0.232); /* use alpha so content shows */
+  z-index: 1; /* above background */
+  pointer-events: none;
+}
+.servicePageCont {
+  position: relative; /* enable z-index */
+  padding: 0 2% 10% 4%;
+  z-index: 2;
+}
+.splitSections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5%;
+  margin: 4%;
+  border: 1px solid #bebebe9b;
+  background: linear-gradient(145deg, #ffff, #f0f0f0);
+  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  gap: 20px;
+}
+.splitSections img {
+  width: 440;
+  height: 290;
+  margin: auto;
+}
+.upperService {
+  margin: auto;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .splitSections {
+    grid-template-columns: 1fr;
+  }
+  .splitSections img {
+    width: 100%;
+  }
+}
+
+/***** ABOUT PAGE ***/
+.aboutMain {
+  margin: 2% 10%;
+}
+.aboutTwoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  place-content: center;
+}
+.aboutTwoGrid img {
+  width: 80%;
+  margin: auto;
+}
+.aboutThreeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.aboutThreeGrid img {
+  width: 100%;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .aboutTwoGrid {
+    grid-template-columns: 1fr;
   }
 }
