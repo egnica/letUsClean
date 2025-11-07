@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import Services from "../data/services.json";
 import { useState } from "react";
+import { PhoneIcon } from "lucide-react";
 import { motion, scale } from "framer-motion";
 function nav() {
   const [isHovered, setIsHovered] = useState(false);
@@ -31,9 +32,7 @@ function nav() {
           src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp"
         />
       </Link>
-      <h1 className={styles.titleHeader1} style={{ paddingRight: "50px" }}>
-        Let Us Clean MN
-      </h1>
+      <h1 className={styles.titleHeader1}>Let Us Clean MN</h1>
 
       <div className={styles.mobileNav}>
         <Link className={styles.navItem} href="/">
@@ -66,14 +65,27 @@ function nav() {
           )}
         </div>
 
-        <Link className={styles.navItem} href={"#"}>
+        <Link className={styles.navItem} href={"../contact"}>
           Contact
         </Link>
-        <Link className={styles.navItem} href={"#"}>
-          FAQ
-        </Link>
-        <Link className={styles.navItem} href={"#"}>
+
+        <Link className={styles.navItem} href={"../blog"}>
           Blog
+        </Link>
+      </div>
+      <div className={styles.callToActionCont}>
+        <a href="tel:+1-612-991-2832" className={styles.navButton}>
+          <div className={styles.phoneNav}>
+            <PhoneIcon size={30} strokeWidth={1.5} />
+            Book A Cleaning
+          </div>
+        </a>
+        <Link
+          className={styles.navButton}
+          href="/contact"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          Free Quote
         </Link>
       </div>
     </nav>

@@ -1,0 +1,65 @@
+{
+  "key": [
+    {
+      "_id": "000",
+      "type": "post",
+      "title": "",
+      "slug": "",
+      "description": "",
+      "datePublished": "",
+      "dateModified": "",
+      "imageMain": "",
+      "imageMainAlt": "",
+      "tags": [],
+      "category": "",
+      "draft": false,
+      "readingTime": 0,
+      "contentBlocks": [
+        {
+          "type": "image",
+          "url": "",
+          "caption": "",
+          "bodyMDX": ""
+        },
+        {
+          "type": "video",
+          "url": "",
+          "caption": "",
+          "bodyMDX": ""
+        }
+      ]
+    }
+  ],
+
+  "posts": [
+    {
+      "_id": "001",
+      "type": "post",
+      "title": "Welcome to Let Us Clean MN",
+      "slug": "welcome-to-let-us-clean-mn",
+      "description": "A quick hello, what this blog is about, and how to get the most value from our cleaning tips and updates.",
+      "datePublished": "2025-11-06",
+      "dateModified": "2025-11-06",
+      "imageMain": "Freshly cleaned kitchen with sunlight",
+      "imageMainAlt": "Bright kitchen countertop with neatly arranged cleaning caddy",
+      "tags": ["welcome", "company-updates", "cleaning-tips", "twin-cities"],
+      "category": "Announcements",
+      "draft": false,
+      "readingTime": 2,
+      "contentBlocks": [
+        {
+          "type": "image",
+          "url": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/welcome-hero.webp",
+          "caption": "Hi Twin Cities — we’re glad you’re here!",
+          "bodyMDX": "## What to expect\n- Bite-size cleaning tips you can use today\n- Behind-the-scenes of how we keep homes sparkling\n- Service updates, promos, and seasonal checklists\n\n> Pro tip: Bookmark **/cleaning-services** to compare options whenever you’re ready.\n\n[Learn about our services](/cleaning-services)"
+        },
+        {
+          "type": "video",
+          "url": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/welcome-intro.webm",
+          "caption": "60-second intro from the team",
+          "bodyMDX": "### Quick start\nIf you’re new, start with our **Room-by-Room Reset** series rolling out this month. Have a request? Drop it in the comments, and we’ll add it to the queue."
+        }
+      ]
+    }
+  ]
+}

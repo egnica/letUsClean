@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Script from "next/script";
+import Footer from "./components/footer";
 import { SITE, organizationSchema, websiteSchema } from "./lib/schema";
 
 export const metadata = {
@@ -66,7 +67,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
-
+        <footer>
+          <Footer />
+        </footer>
         <Script
           id="global-schema"
           type="application/ld+json"

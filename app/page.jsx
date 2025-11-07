@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
+import QuoteForm from "./components/QuoteForm";
+import { MailIcon, PhoneIcon, FacebookIcon } from "lucide-react";
 import {
   SITE,
   webPageSchema,
@@ -24,7 +26,7 @@ import {
 } from "framer-motion";
 
 export default function Home() {
-  // ✅ Page-specific JSON-LD
+  // Page-specific JSON-LD
   const schemas = [
     webPageSchema({
       name: "Home",
@@ -111,11 +113,11 @@ export default function Home() {
             </div>
 
             <div className={styles.twoBtn}>
-              {/* ✅ Use buttons/links */}
+              {/*Use buttons/links */}
               <Link className={styles.heroButton} href="/book">
                 Book A Cleaning
               </Link>
-              <Link className={styles.heroButton} href="/quote">
+              <Link className={styles.heroButton} href="/contact">
                 Free Quote
               </Link>
             </div>
@@ -180,8 +182,37 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <br />
+        <br />
+        <div
+          className={styles.aboutTwoGrid}
+          style={{ margin: "auto", padding: "2%" }}
+        >
+          <div style={{ alignContent: "center" }}>
+            <h2>Ready to Start A New Project?</h2>
+            <a href="tel:+1-612-991-2832" target="_blank">
+              <div className={styles.contactRow}>
+                <PhoneIcon size={40} strokeWidth={1.5} />
+                &nbsp;&nbsp; <p>(612) 991-2832</p>
+              </div>
+            </a>
+            <a href="mailto:info@letuscleanmn.com" target="_blank">
+              <div className={styles.contactRow}>
+                <MailIcon size={40} strokeWidth={1.5} />
+                &nbsp;&nbsp; <p>info@letuscleanmn.com</p>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/LetUsCleanMN" target="_blank">
+              <div className={styles.contactRow}>
+                <FacebookIcon size={50} strokeWidth={1.5} />
+                &nbsp;&nbsp; <p>https://www.facebook.com/LetUsCleanMN</p>
+              </div>
+            </a>
+          </div>
+          <QuoteForm />
+        </div>
 
-        {/* ✅ JSON-LD via next/script */}
+        {/* JSON-LD via next/script */}
         <Script
           id="home-schema"
           type="application/ld+json"
