@@ -32,7 +32,7 @@ export default function ServicePage({ params }) {
     webPageSchema({
       name: service.title,
       description: service.blurb,
-      url: `https://letuscleanmn.com/cleaning-services/${service.slug}`, // ← update domain
+      url: `https://letuscleanmn.com/cleaning-services/${service.slug}`,
     }),
     serviceSchema(service),
     faqSchema(service.faq),

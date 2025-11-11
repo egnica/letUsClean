@@ -696,3 +696,108 @@
 .bottomFooter a:hover {
   scale: 1.05;
 }
+/**** All Posts Page ***/
+.blogListContain {
+  padding: 0 20px;
+}
+.rowContain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.postContain {
+  padding: 5%;
+  margin: 4%;
+  border: 1px solid #bebebe9b;
+  background: linear-gradient(145deg, #ffff, #f0f0f0);
+  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  gap: 20px;
+}
+.postContain h2 {
+  text-align: center;
+}
+.postContain img {
+  display: grid;
+  margin: auto;
+}
+.postContain p {
+  margin: 0 30px;
+}
+.btnBlogCont {
+  display: grid;
+  margin: 0 20%;
+}
+
+/**** Article Page **/
+.articleMain {
+  padding: 0 3%;
+  display: grid;
+}
+.articleMain h1 {
+  margin: 0;
+  padding: 0;
+}
+.aboutMainH2 {
+  font-size: 1.7rem;
+}
+.aboutMainAnchor {
+  font-size: 1.2rem;
+  color: #09005b;
+}
+.aboutMainParagraph {
+  font-size: 1.2rem;
+}
+.articleMain p {
+  margin: 0;
+}
+.articleMain img {
+  margin: auto;
+}
+.picLeft {
+  display: grid;
+  padding-top: 20px;
+  place-content: center;
+  grid-template-areas: "img text";
+}
+.picRight {
+  display: grid;
+  padding-top: 20px;
+  place-content: center;
+  grid-template-areas: "text img";
+}
+.imgBlock {
+  grid-area: img;
+  margin: auto;
+}
+.textBlock {
+  padding-top: 20px;
+  grid-area: text;
+  margin: auto;
+}
+.textBlock2 {
+  grid-area: text;
+  margin: auto;
+}
+.videoBlockCont {
+  padding: 10px 0 0 0;
+  display: grid;
+  place-content: center;
+}
+.videoBlock {
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .picLeft {
+    grid-template-areas:
+      "text"
+      "img";
+  }
+  .picRight {
+    grid-template-areas:
+      "text"
+      "img";
+  }
+  .imgBlock {
+    padding-top: 20px;
+  }
+}

@@ -8,12 +8,13 @@
       "description": "",
       "datePublished": "",
       "dateModified": "",
-      "imageMain": "",
+      "imageMainUrl": "",
       "imageMainAlt": "",
       "tags": [],
       "category": "",
       "draft": false,
       "readingTime": 0,
+      "introParagraph": "",
       "contentBlocks": [
         {
           "type": "image",
@@ -40,24 +41,29 @@
       "description": "A quick hello, what this blog is about, and how to get the most value from our cleaning tips and updates.",
       "datePublished": "2025-11-06",
       "dateModified": "2025-11-06",
-      "imageMain": "Freshly cleaned kitchen with sunlight",
+      "imageMainUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/blog/welcome.webp",
       "imageMainAlt": "Bright kitchen countertop with neatly arranged cleaning caddy",
       "tags": ["welcome", "company-updates", "cleaning-tips", "twin-cities"],
       "category": "Announcements",
       "draft": false,
       "readingTime": 2,
+      "introParagraph": "## We’re so glad you stopped by!\nThis site is our new home for everything related to keeping your space clean, comfortable, and stress-free. Here, you’ll find updates about our services, seasonal cleaning tips, and behind-the-scenes stories from our team as we help homes and businesses across the Twin Cities shine a little brighter.",
       "contentBlocks": [
         {
+          "bodyMDX": "Whether you’re a weekly client, just getting to know us, or searching for advice on tackling tough messes, we want this blog to feel like a friendly resource—not a sales pitch."
+        },
+        {
+          "bodyMDX": "Check back soon for cleaning guides, product recommendations, and local stories that make Minnesota living a little easier (and a lot cleaner)."
+        },
+
+        {
           "type": "image",
-          "url": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/welcome-hero.webp",
+          "url": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean10.webp",
           "caption": "Hi Twin Cities — we’re glad you’re here!",
           "bodyMDX": "## What to expect\n- Bite-size cleaning tips you can use today\n- Behind-the-scenes of how we keep homes sparkling\n- Service updates, promos, and seasonal checklists\n\n> Pro tip: Bookmark **/cleaning-services** to compare options whenever you’re ready.\n\n[Learn about our services](/cleaning-services)"
         },
         {
-          "type": "video",
-          "url": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/welcome-intro.webm",
-          "caption": "60-second intro from the team",
-          "bodyMDX": "### Quick start\nIf you’re new, start with our **Room-by-Room Reset** series rolling out this month. Have a request? Drop it in the comments, and we’ll add it to the queue."
+          "bodyMDX": " Thanks for visiting and welcome to our corner of the internet!"
         }
       ]
     }

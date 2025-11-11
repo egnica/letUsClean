@@ -1,7 +1,8 @@
 import { getSinglePost } from "../../lib/getSinglePost";
 
 export async function generateMetadata({ params }) {
-  const post = getSinglePost(params.slug);
+  const { slug } = await params;
+  const post = getSinglePost(slug);
   if (!post) return { title: "Post not found | Let Us Clean MN" };
 
   const url = `https://letuscleanmn.com/blog/${post.slug}`;
@@ -27,8 +28,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPostLayout({ children, params }) {
-  const post = getSinglePost(params.slug);
+export default async function BlogPostLayout({ children, params }) {
+  const { slug } = await params;
+  const post = getSinglePost(slug);
+
   if (!post) return <>{children}</>;
 
   const url = `https://letuscleanmn.com/blog/${post.slug}`;

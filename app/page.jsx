@@ -164,18 +164,13 @@ export default function Home() {
                   <p className={styles.serviceTag}>{item.tagline}</p>
                   <p>{item.blurb}</p>
 
-                  {item.ctaHref ? (
-                    <Link className={styles.cta} href={item.ctaHref}>
-                      {item.ctaLabel || "Book Now"}
-                    </Link>
-                  ) : (
-                    <span className={styles.ctaDisabled}>
-                      {item.ctaLabel || "Learn more below"}
-                    </span>
-                  )}
+                  <Link className={styles.cta} href="/contact ">
+                    {item.ctaLabel || "Book Now"}
+                  </Link>
 
+                  <div style={{ padding: "3px" }}></div>
                   <Link href={`/cleaning-services/${item.slug}`}>
-                    More Info
+                    More {item.shortTitle} Info
                   </Link>
                 </div>
               </div>
