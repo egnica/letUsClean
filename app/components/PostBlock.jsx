@@ -9,7 +9,7 @@ const components = {
 };
 function PostBlock({ block }) {
   return (
-    <div>
+    <div>  
       {block.map((item, index) => {
         const test = index % 2 == 0;
         return item.type == "image" ? (
