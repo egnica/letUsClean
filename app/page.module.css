@@ -266,7 +266,7 @@
   background: none;
   background-color: #1111119d;
   border: 2px solid #3498db;
-  color: #3498db;
+  color: #81cdff;
   padding: 10px 20px;
   font-size: 18px;
   position: relative;
@@ -386,6 +386,11 @@
 }
 .contactRow p {
   font-size: 1.3rem;
+}
+.downloadableCont {
+  display: grid;
+  place-content: center;
+  text-align: center;
 }
 
 /*TABLET*/

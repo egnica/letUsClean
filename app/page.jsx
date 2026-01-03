@@ -133,7 +133,7 @@ export default function Home() {
             <div style={{ margin: "auto" }}>
               <h2 className={styles.belowMainH2}>
                 <strong style={{ color: "#7b5c8d" }}>Experience</strong> a
-                cleaner, clutter-free{" "}
+                cleaner, stress-free{" "}
                 <strong style={{ color: "#deb344" }}>environment.</strong>
               </h2>
               <p className={styles.lead}>
@@ -177,6 +177,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+
         <br />
         <br />
         <div
@@ -206,6 +207,27 @@ export default function Home() {
           </div>
           <QuoteForm />
         </div>
+        <br />
+        <br />
+        <section className={styles.downloadableCont}>
+          <h2>Downloadable Materials</h2>
+          <div className={styles.twoBtn}>
+            <a
+              href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Preparing.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className={styles.heroButton}>Preparing Checklist</div>
+            </a>
+            <a
+              href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/+Cleaning_Checklist.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className={styles.heroButton}>Cleaning Checklist</div>
+            </a>
+          </div>
+        </section>
 
         {/* JSON-LD via next/script */}
         <Script
