@@ -114,9 +114,9 @@ export default function Home() {
 
             <div className={styles.twoBtn}>
               {/*Use buttons/links */}
-              <Link className={styles.heroButton} href="/book">
+              <a href="tel:+1-612-991-2832" className={styles.heroButton}>
                 Book A Cleaning
-              </Link>
+              </a>
               <Link className={styles.heroButton} href="/contact">
                 Free Quote
               </Link>
