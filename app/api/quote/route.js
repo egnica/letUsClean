@@ -74,9 +74,9 @@ export async function POST(req) {
 
     // --- Internal notification ---
     await resend.emails.send({
-      from: "Let Us Clean MN <nick@nicholasegner.com>", // swap later to info@letuscleanmn.com
+      from: "Let Us Clean MN <info@letuscleanmn.com>", // swap later to info@letuscleanmn.com
       // to: "letuscleanmn@gmail.com",
-      to: "nictacks@gmail.com",
+      to: "info@letuscleanmn.com",
       reply_to: email,
       subject: `New Quote • ${name} • ${serviceType}`,
       text:
