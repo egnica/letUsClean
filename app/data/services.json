@@ -3,8 +3,8 @@
     "slug": "residential-cleaning",
     "title": "Residential Cleaning Services in Minneapolis–St. Paul",
     "shortTitle": "Residential Cleaning",
-    "tagline": "Weekly, bi-weekly, or monthly plans",
-    "blurb": "Regular home cleaning, deep cleans, and custom schedules to fit your lifestyle.",
+    "tagline": "Make a clean house your new normal with regular cleanings. Monthly, bi-weekly or weekly based on your needs.",
+    "blurb": "No matter what your reason, Let Us Clean, so you don’t have to. Maybe you are too busy, you don’t know how or you just don’t want to! ",
     "cityTarget": [
       "Minneapolis",
       "St. Paul",
@@ -13,28 +13,41 @@
       "Bloomington"
     ],
     "includes": [
-      "Kitchen surfaces & appliances (exterior)",
-      "Bathrooms sanitized",
-      "Dusting & baseboards",
+      "Clean/polish all appliances",
+      "Bathrooms Detail light fixtures/fans",
+      "Wipe furniture",
       "Floors vacuumed & mopped"
     ],
     "addOns": [
-      "Inside fridge",
-      "Inside oven",
-      "Windows (interior)",
-      "Laundry fold"
+      "Oven Clean",
+      "Fridge clean",
+      "Rain-X Shower Treatment",
+      "Bed Making"
     ],
     "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/residential-cleaning.webp",
     "schemaServiceType": "Residential Cleaning",
     "ctaLabel": "Get Quote",
-    "faq": [{ "q": "whats is that", "a": "this is that" }]
+    "faq": [
+      {
+        "q": " Do you bring your own supplies? ",
+        "a": "Yes! Our clients don’t need anything! Our weekly clients don’t even need a vacuum anymore! We bring everything, every time."
+      },
+      {
+        "q": "Do I need to be home while you clean? ",
+        "a": "No, most clients prefer to be out of the house. We can lock up on our way out. "
+      },
+      {
+        "q": "How does timing work?",
+        "a": "Our timing can vary. We work hard to cover everything in your home each time, which means each clean time can vary. Typically, we can give a range of time we will arrive within an hour but we never know exactly how long each job will take. "
+      }
+    ]
   },
   {
-    "slug": "move-out-cleaning",
-    "title": "Move-Out Cleaning in the Twin Cities",
-    "shortTitle": "Move-Out Cleaning",
-    "tagline": "Perfect for renters, landlords & realtors",
-    "blurb": "Detailed, top-to-bottom clean to help you get your deposit back or list fast.",
+    "slug": "move-in-out-cleaning",
+    "title": "Move Out/In Cleaning Cleaning in the Twin Cities",
+    "shortTitle": "Move Out/In Cleaning",
+    "tagline": "Moving is stressful. We take care of the move-out clean and prep your new place so it’s ready to feel like home.",
+    "blurb": "Move-in/out cleans are deep, detailed cleanings of fixtures, cabinets, and appliances. So you don’t move into someone else’s dust.",
     "cityTarget": [
       "Minneapolis",
       "St. Paul",
@@ -48,17 +61,27 @@
       "Baseboards, doors & trim",
       "Bathrooms & fixtures deep clean"
     ],
-    "addOns": ["Garage sweep", "Patio sweep", "Carpet shampoo (partner)"],
+    "addOns": ["Junk Removal (partner)"],
     "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/move-out-cleaning.webp",
     "schemaServiceType": "Move-out Cleaning",
-    "ctaLabel": "Get Move-Out Quote"
+    "ctaLabel": "Get Move-Out Quote",
+    "faq": [
+      {
+        "q": " The realtor said it was already cleaned, can we hire you to do a quick wipe-down?",
+        "a": "We have heard of this phantom ‘quick wipe-down’ and are here to tell you it doesn't exist. While your realtor may believe it was already cleaned, it is likely not up to our standards. We cover all of our bases, every time"
+      },
+      {
+        "q": "My landlord gave me this list, can I just give it to you to do? I just want my deposit back.",
+        "a": "YES! Give us the homework. Don’t lose your security deposit because you were too busy to appease the rental company. "
+      }
+    ]
   },
   {
     "slug": "office-cleaning",
     "title": "Office & Commercial Cleaning in Minneapolis–St. Paul",
-    "shortTitle": "Office & Commercial",
-    "tagline": "Reliable cleaning for small offices & studios",
-    "blurb": "Nightly, weekly, or custom schedules that keep your workplace spotless.",
+    "shortTitle": "Office & Commercial Cleaning",
+    "tagline": "Whatever your business needs, we are here for you! ",
+    "blurb": "Every commercial clean is different and we will deliver customized, reliable cleaning for your business.",
     "cityTarget": [
       "Minneapolis",
       "St. Paul",
@@ -100,7 +123,7 @@
       "Windows & sills",
       "Fixtures & finishes polished"
     ],
-    "addOns": ["HEPA air scrub (partner)", "Exterior windows (partner)"],
+
     "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/post-construction-cleaning.webp",
     "schemaServiceType": "Post-construction Cleaning",
     "ctaLabel": "Get Post-Construction Quote"

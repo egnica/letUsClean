@@ -12,7 +12,7 @@ import {
 } from "../../lib/schema";
 
 export async function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
+  return await services.map((service) => ({ slug: service.slug }));
 }
 
 export function generateMetadata({ params }) {
@@ -76,6 +76,20 @@ export default function ServicePage({ params }) {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              Detailed List at:
+              <br />
+              <a
+                href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/+Cleaning_Checklist.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div
+                  className={styles.heroButton}
+                  style={{ maxWidth: "150px", textAlign: "center" }}
+                >
+                  Cleaning Checklist
+                </div>
+              </a>
             </section>
           ) : null}
 
@@ -87,6 +101,19 @@ export default function ServicePage({ params }) {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              Detailed List at: <br />
+              <a
+                href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Preparing.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div
+                  className={styles.heroButton}
+                  style={{ maxWidth: "150px", textAlign: "center" }}
+                >
+                  Preparing Checklist
+                </div>
+              </a>
             </section>
           ) : null}
         </div>
@@ -95,7 +122,7 @@ export default function ServicePage({ params }) {
             <h2>FAQs</h2>
             <div>
               {service.faq.map((f) => (
-                <details key={f.q}>
+                <details className={styles.question} key={f.q}>
                   <summary>{f.q}</summary>
                   <p>{f.a}</p>
                 </details>
@@ -112,7 +139,9 @@ export default function ServicePage({ params }) {
         ) : null}
 
         <div>
-          <Link href={quoteHref}>{service.ctaLabel || "Get Quote"}</Link>
+          <Link style={{ color: "blue" }} href={quoteHref}>
+            {service.ctaLabel || "Get Quote"}
+          </Link>
         </div>
       </div>
       <script type="application/ld+json" suppressHydrationWarning>

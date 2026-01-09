@@ -70,7 +70,7 @@ export default function AboutPage() {
 
         <div className={styles.aboutThreeGrid}>
           <img
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/cleanSpace-1.WEBP"
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/cleanSpace-5.webp"
             alt="Picture of clean room 1"
           />
           <img

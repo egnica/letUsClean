@@ -366,8 +366,8 @@
 }
 .service h3 {
   margin: 0;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 800;
 }
 
 .contactRow {
@@ -467,6 +467,7 @@
   transform: scale(1.03);
   color: #db1fc2;
 }
+
 /* MOBILE */
 @media (max-width: 768px) {
   .servicesContain {
@@ -515,6 +516,18 @@
   margin: auto;
   text-align: center;
 }
+
+.question {
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 10px;
+  transition: ease-in-out 0.2s;
+}
+
+.question:hover {
+  font-size: 1.4rem;
+}
+
 @media (max-width: 768px) {
   .splitSections {
     grid-template-columns: 1fr;

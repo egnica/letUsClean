@@ -17,5 +17,8 @@ nav {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: rgb(8, 38, 122);
+}
+p, li {
+font-size: 1.1rem;
 }
