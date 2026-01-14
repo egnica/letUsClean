@@ -74,7 +74,7 @@ function nav() {
         </Link>
       </div>
       <div className={styles.callToActionCont}>
-        <a href="tel:+1-612-991-2832" className={styles.navButton}>
+        <a href="tel:+16129912832" className={styles.navButton}>
           <div className={styles.phoneNav}>
             <PhoneIcon size={30} strokeWidth={1.5} />
             Book A Cleaning
