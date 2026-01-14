@@ -1,11 +1,11 @@
 // lib/schema.js
 const SITE = {
   name: "Let Us Clean MN",
-  url: "https://letuscleanmn.com",
-  logo: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.webp",
-  area: ["Minneapolis", "St. Paul", "Twin Cities"],
+  url: "https://www.letuscleanmn.com/",
+  logo: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean-logo.png",
   phone: "+1-612-991-2832",
-  // add what you have:
+  email: "info@letuscleanmn.com",
+
   sameAs: [
     // e.g. Google Business Profile, Facebook, Instagram
     // "https://maps.google.com/?cid=YOUR_GBP_CID",
@@ -60,16 +60,15 @@ export function serviceSchema(svc) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${SITE.url}/services/${
+      svc.slug || svc.title.toLowerCase().replace(/\s+/g, "-")
+    }`,
     name: svc.title,
     description: svc.blurb,
     serviceType,
     areaServed: area,
     provider: {
-      "@type": "LocalBusiness",
-      name: SITE.name,
-      url: SITE.url,
-      image: SITE.logo,
-      telephone: SITE.phone,
+      "@id": `${SITE.url}#localbusiness`,
     },
   };
 }
@@ -118,52 +117,48 @@ export function webPageSchema({ name, description, url }) {
   };
 }
 
-// NEW: Organization (generic) – use if you don’t want LocalBusiness
-export function organizationSchema({
-  name = SITE.name,
-  url = SITE.url,
-  logo = SITE.logo,
-  sameAs = SITE.sameAs,
-}) {
-  const node = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name,
-    url,
-    logo,
-  };
-  if (sameAs && sameAs.length) node.sameAs = sameAs;
-  return node;
-}
-
 export function localBusinessSchema({
   name = SITE.name,
   url = SITE.url,
   logo = SITE.logo,
   telephone = SITE.phone,
+  email = SITE.email,
   sameAs = SITE.sameAs,
   address = SITE.address,
   openingHours = SITE.openingHours,
   areaServed = SITE.area,
-  serviceAreaGeo, // NEW: pass a GeoCircle or GeoShape
+  serviceAreaGeo,
 }) {
   const node = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${url}#localbusiness`,
     name,
     url,
     image: logo,
     logo,
     telephone,
+    email,
     areaServed,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone,
+        email,
+        contactType: "customer service",
+        areaServed: "US-MN",
+        availableLanguage: ["English"],
+      },
+    ],
   };
+
   if (address && (address.addressLocality || address.streetAddress)) {
     node.address = { "@type": "PostalAddress", ...address };
   }
+
   if (openingHours?.length) node.openingHours = openingHours;
   if (sameAs?.length) node.sameAs = sameAs;
 
-  // attach service area as a Place with geo
   if (serviceAreaGeo) {
     node.areaServed = [
       ...(Array.isArray(areaServed) ? areaServed : [areaServed]),
@@ -174,6 +169,7 @@ export function localBusinessSchema({
       },
     ];
   }
+
   return node;
 }
 

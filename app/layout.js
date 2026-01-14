@@ -1,10 +1,13 @@
 import "./globals.css";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "./page.module.css";
+
 import Script from "next/script";
 import Footer from "./components/footer";
-import { SITE, organizationSchema, websiteSchema } from "./lib/schema";
+import {
+  SITE,
+  organizationSchema,
+  websiteSchema,
+  localBusinessSchema,
+} from "./lib/schema";
 
 export const metadata = {
   title:
@@ -31,8 +34,21 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+  images: [
+    {
+      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Let Us Clean MN - Professional Cleaning Services in Minneapolis",
+    },
+  ],
+
   twitter: {
     card: "summary_large_image",
+    images: [
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
+    ],
+
     title: "Let Us Clean MN | Minneapolis Cleaning Services",
     description:
       "Professional house and office cleaning in Minneapolis, MN. Locally owned, affordable, and reliable. Book online today!",
@@ -45,11 +61,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const globalSchemas = [
-    organizationSchema({
-      name: SITE.name,
-      url: SITE.url,
-      logo: SITE.logo,
-      sameAs: SITE.sameAs,
+    localBusinessSchema({
+      serviceAreaGeo: twinCitiesGeoCircle(50),
     }),
     websiteSchema({
       url: SITE.url,
@@ -62,7 +75,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* Adobe Fonts embed link */}
         <link rel="stylesheet" href="https://use.typekit.net/zjf3nkl.css" />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
+
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
