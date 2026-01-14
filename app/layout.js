@@ -29,29 +29,27 @@ export const metadata = {
     title: "Let Us Clean MN | Trusted Cleaning Services in Minneapolis, MN",
     description:
       "Locally owned and operated cleaning company offering residential and commercial cleaning services throughout Minneapolis and nearby areas. Schedule your next cleaning today!",
-    url: "https://letuscleanmn.com/",
+    url: "https://www.letuscleanmn.com/",
     siteName: "Let Us Clean MN",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Let Us Clean MN - Professional Cleaning Services in Minneapolis",
+      },
+    ],
   },
-  images: [
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
-      width: 1200,
-      height: 630,
-      alt: "Let Us Clean MN - Professional Cleaning Services in Minneapolis",
-    },
-  ],
-
   twitter: {
     card: "summary_large_image",
-    images: [
-      "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
-    ],
-
     title: "Let Us Clean MN | Minneapolis Cleaning Services",
     description:
       "Professional house and office cleaning in Minneapolis, MN. Locally owned, affordable, and reliable. Book online today!",
+    images: [
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/meta_image-letusclean.jpg",
+    ],
   },
   robots: {
     index: true,
