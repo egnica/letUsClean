@@ -4,9 +4,9 @@ import Script from "next/script";
 import Footer from "./components/footer";
 import {
   SITE,
-  organizationSchema,
   websiteSchema,
   localBusinessSchema,
+  twinCitiesGeoCircle,
 } from "./lib/schema";
 
 export const metadata = {
