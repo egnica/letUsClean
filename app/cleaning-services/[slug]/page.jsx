@@ -76,7 +76,7 @@ export default function ServicePage({ params }) {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              Detailed List at:
+
               <br />
               <a
                 href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/+Cleaning_Checklist.pdf"
