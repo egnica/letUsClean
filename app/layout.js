@@ -10,6 +10,7 @@ import {
 } from "./lib/schema";
 
 export const metadata = {
+  metadataBase: new URL("https://letuscleanmn.com"),
   title:
     "Let Us Clean MN | Residential & Commercial Cleaning in Minneapolis, MN",
   description:
