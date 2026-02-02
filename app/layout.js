@@ -23,13 +23,13 @@ export const metadata = {
     "cleaning company Twin Cities",
   ],
   alternates: {
-    canonical: "https://www.letuscleanmn.com/",
+    canonical: "https://letuscleanmn.com/",
   },
   openGraph: {
     title: "Let Us Clean MN | Trusted Cleaning Services in Minneapolis, MN",
     description:
       "Locally owned and operated cleaning company offering residential and commercial cleaning services throughout Minneapolis and nearby areas. Schedule your next cleaning today!",
-    url: "https://www.letuscleanmn.com/",
+    url: "https://letuscleanmn.com/",
     siteName: "Let Us Clean MN",
     locale: "en_US",
     type: "website",
