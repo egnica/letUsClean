@@ -133,7 +133,9 @@
   padding: 0.5rem 0.75rem;
   display: block; /* full clickable row */
   text-align: center;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
   font-weight: 400;
 }
 
@@ -352,7 +354,9 @@
   text-align: center;
 
   background: linear-gradient(145deg, #ffff, #f0f0f0);
-  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  box-shadow:
+    10px 10px 30px #bebebe,
+    -20px -20px 60px #ffffffe2;
 }
 
 .serviceText {
@@ -452,7 +456,9 @@
   margin: 4%;
   border: 1px solid #bebebe9b;
   background: linear-gradient(145deg, #ffff, #f0f0f0);
-  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  box-shadow:
+    10px 10px 30px #bebebe,
+    -20px -20px 60px #ffffffe2;
 }
 .indServiceCont img {
   width: 50%;
@@ -504,7 +510,9 @@
   margin: 4%;
   border: 1px solid #bebebe9b;
   background: linear-gradient(145deg, #ffff, #f0f0f0);
-  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  box-shadow:
+    10px 10px 30px #bebebe,
+    -20px -20px 60px #ffffffe2;
   gap: 20px;
 }
 .splitSections img {
@@ -563,6 +571,9 @@
   .aboutTwoGrid {
     grid-template-columns: 1fr;
   }
+  .aboutTwoGrid h2 {
+    text-align: center;
+  }
 }
 
 /* GET QUOTE FORM */
@@ -574,7 +585,9 @@
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   background: linear-gradient(145deg, #ffff, #f0f0f0);
-  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  box-shadow:
+    10px 10px 30px #bebebe,
+    -20px -20px 60px #ffffffe2;
   backdrop-filter: blur(2px);
 }
 
@@ -641,7 +654,9 @@
   border-radius: 10px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.06s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.06s ease,
+    box-shadow 0.12s ease;
 }
 
 .button:hover {
@@ -727,7 +742,9 @@
   margin: 4%;
   border: 1px solid #bebebe9b;
   background: linear-gradient(145deg, #ffff, #f0f0f0);
-  box-shadow: 10px 10px 30px #bebebe, -20px -20px 60px #ffffffe2;
+  box-shadow:
+    10px 10px 30px #bebebe,
+    -20px -20px 60px #ffffffe2;
   gap: 20px;
 }
 .postContain h2 {

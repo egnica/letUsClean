@@ -63,7 +63,7 @@ export default function AboutPage() {
             <strong> Let Us Clean… so you don’t have to!</strong>
           </p>
           <img
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/letsusclead-owners.webp"
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Let-Us-Clean-Edited-12.webp"
             alt="Two owners of Lets Us Clean MN"
           />
         </div>

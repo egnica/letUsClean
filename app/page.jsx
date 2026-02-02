@@ -52,17 +52,18 @@ export default function Home() {
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    prefersReduced ? ["0%", "0%"] : ["-35%", "35%"]
+    prefersReduced ? ["0%", "0%"] : ["-35%", "35%"],
   );
 
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    prefersReduced ? [1, 1] : [1.15, 1.05]
+    prefersReduced ? [1, 1] : [1.15, 1.05],
   );
 
   const imageArray = [
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean1.webp",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Let-Us-Clean-Edited-30.webp",
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean2.webp",
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean3.webp",
   ];
