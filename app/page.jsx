@@ -6,6 +6,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import QuoteForm from "./components/QuoteForm";
+import GoogleReviewsWidget from "./components/googleWidget";
 import { MailIcon, PhoneIcon, FacebookIcon } from "lucide-react";
 import {
   SITE,
@@ -145,7 +146,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        <GoogleReviewsWidget />
         <section className={styles.servicesCont}>
           <div className={styles.servicesTitle}>
             <h2 className={styles.belowMainH2}>

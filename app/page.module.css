@@ -325,7 +325,7 @@
   text-align: center;
 }
 .servicesTitle {
-  padding: 6% 0 3% 0;
+  padding: 3% 0 1% 0;
   display: grid;
   justify-content: center;
 }
@@ -835,4 +835,56 @@
   .imgBlock {
     padding-top: 20px;
   }
+}
+
+/* GOOGLE WIDGET */
+.googleContainer {
+  padding-top: 2%;
+}
+.googleTitle {
+  text-align: center;
+}
+.googleTitle h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #7b5c8d;
+}
+.reviewContain {
+  display: flex;
+  height: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+.googlePostCont {
+  display: grid;
+  border: 2px solid #bebebe;
+  grid-template-columns: 0.4fr 1fr;
+  max-width: 400px;
+  padding: 10px;
+  height: 100%;
+  background-color: rgb(246, 246, 248);
+  border-radius: 20px;
+  transition: 0.4s;
+}
+.googlePostCont:hover {
+  scale: 1.03;
+  box-shadow: 5px 5px 8px 2px #888888;
+}
+@media (max-width: 668px) {
+  .googlePostCont {
+    display: block;
+    text-align: center;
+    margin: 20px;
+  }
+  .reviewContain {
+    display: block;
+  }
+}
+
+.googlePostCont img {
+  margin: auto;
+}
+.googlePostCont p {
+  margin: 0;
+  padding: 0;
 }
