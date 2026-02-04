@@ -63,7 +63,6 @@ export default function Home() {
 
   const imageArray = [
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean1.webp",
-
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean2.webp",
     "https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/clean3.webp",
   ];
