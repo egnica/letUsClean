@@ -100,14 +100,8 @@ export default function ServicePage({ params }) {
                 {service.addOns.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
-                {service.slug == "move-in-out-cleaning" && (
-                  <a href="https://www.northstarcleanouts.com/">
-                    <p style={{ margin: 0, fontSize: "1.3rem" }}>
-                      Northstar Cleanouts
-                    </p>
-                  </a>
-                )}
               </ul>
+
               {service.slug == "residential-cleaning" && (
                 <>
                   <p>
