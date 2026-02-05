@@ -93,20 +93,26 @@ export default function ServicePage({ params }) {
             </section>
           ) : null}
 
-          {service.slug.length ? (
+          {service.addOns?.length ? (
             <section>
               <h2>Popular add-ons</h2>
               <ul>
                 {service.addOns.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
+                {service.slug == "move-in-out-cleaning" && (
+                  <a
+                    style={{ fontSize: "1.3rem" }}
+                    href="https://www.northstarcleanouts.com/"
+                  >
+                    Northstar Cleanouts
+                  </a>
+                )}
               </ul>
 
               {service.slug == "residential-cleaning" && (
                 <>
-                  <p>
-                    Detailed List at: <br />
-                  </p>
+                  <p> Detailed List at:</p> <br />
                   <a
                     href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Preparing.pdf"
                     target="_blank"
