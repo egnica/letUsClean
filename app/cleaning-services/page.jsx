@@ -53,7 +53,7 @@ export default function CleaningServicesPage() {
               <p>{s.blurb}</p>
 
               <div className={styles.linkCont}>
-                <Link href={quoteHref} className={styles.serviceLink}>
+                <Link href={"../contact"} className={styles.serviceLink}>
                   {s.ctaLabel || "Get Quote"}
                 </Link>
                 <br />

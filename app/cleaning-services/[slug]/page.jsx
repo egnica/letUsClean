@@ -93,27 +93,40 @@ export default function ServicePage({ params }) {
             </section>
           ) : null}
 
-          {service.addOns?.length ? (
+          {service.slug.length ? (
             <section>
               <h2>Popular add-ons</h2>
               <ul>
                 {service.addOns.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
+                {service.slug == "move-in-out-cleaning" && (
+                  <a href="https://www.northstarcleanouts.com/">
+                    <p style={{ margin: 0, fontSize: "1.3rem" }}>
+                      Northstar Cleanouts
+                    </p>
+                  </a>
+                )}
               </ul>
-              Detailed List at: <br />
-              <a
-                href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Preparing.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div
-                  className={styles.heroButton}
-                  style={{ maxWidth: "150px", textAlign: "center" }}
-                >
-                  Preparing Checklist
-                </div>
-              </a>
+              {service.slug == "residential-cleaning" && (
+                <>
+                  <p>
+                    Detailed List at: <br />
+                  </p>
+                  <a
+                    href="https://nciholasegner.s3.us-east-2.amazonaws.com/let-us-clean/Preparing.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div
+                      className={styles.heroButton}
+                      style={{ maxWidth: "150px", textAlign: "center" }}
+                    >
+                      Preparing Checklist
+                    </div>
+                  </a>
+                </>
+              )}
             </section>
           ) : null}
         </div>
@@ -139,7 +152,7 @@ export default function ServicePage({ params }) {
         ) : null}
 
         <div>
-          <Link style={{ color: "blue" }} href={quoteHref}>
+          <Link style={{ color: "blue" }} href={"../../contact"}>
             {service.ctaLabel || "Get Quote"}
           </Link>
         </div>

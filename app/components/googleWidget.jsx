@@ -32,14 +32,15 @@ export default function GoogleReviewsWidget() {
         <Star />
         <Star />
         <div>
-          <button
-            href="https://g.page/r/CblAdYGgd-A4EAE/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.heroButton}
-          >
-            Leave a Review!
-          </button>
+          <a href="https://g.page/r/CblAdYGgd-A4EAE/review">
+            <button
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.heroButton}
+            >
+              Leave a Review!
+            </button>
+          </a>
         </div>
         <br />
       </div>

@@ -5,13 +5,7 @@
     "shortTitle": "Residential Cleaning",
     "tagline": "Make a clean house your new normal with regular cleanings. Monthly, bi-weekly or weekly based on your needs.",
     "blurb": "No matter what your reason, Let Us Clean, so you don’t have to. Maybe you are too busy, you don’t know how or you just don’t want to! ",
-    "cityTarget": [
-      "Minneapolis",
-      "St. Paul",
-      "Edina",
-      "Richfield",
-      "Bloomington"
-    ],
+    "cityTarget": ["Minneapolis", "St. Paul", "Fridley", "Anoka"],
     "includes": [
       "Scrub down bathrooms",
       "Dust and cobweb all areas",
@@ -47,13 +41,7 @@
     "shortTitle": "Move Out/In Cleaning",
     "tagline": "Moving is stressful. We take care of the move-out clean and prep your new place so it’s ready to feel like home.",
     "blurb": "Move-in/out cleans are deep, detailed cleanings of fixtures, cabinets, and appliances. So you don’t move into someone else’s dust.",
-    "cityTarget": [
-      "Minneapolis",
-      "St. Paul",
-      "Edina",
-      "Richfield",
-      "Bloomington"
-    ],
+    "cityTarget": ["Minneapolis", "St. Paul", "Fridley", "Anoka"],
     "includes": [
       "Cabinets & drawers (interior)",
       "Appliances (interior/exterior)",
@@ -81,13 +69,7 @@
     "shortTitle": "Office & Commercial Cleaning",
     "tagline": "Whatever your business needs, we are here for you! ",
     "blurb": "Every commercial clean is different and we will deliver customized, reliable cleaning for your business.",
-    "cityTarget": [
-      "Minneapolis",
-      "St. Paul",
-      "Edina",
-      "Richfield",
-      "Bloomington"
-    ],
+    "cityTarget": ["Minneapolis", "St. Paul", "Fridley", "Anoka"],
     "includes": [
       "Lobbies, desks & meeting rooms",
       "Trash & recycling",
@@ -105,13 +87,7 @@
     "shortTitle": "Post-Construction",
     "tagline": "We’ll handle the dust so you can move in",
     "blurb": "Fine-dust removal, detail work, and multi-pass cleaning after projects.",
-    "cityTarget": [
-      "Minneapolis",
-      "St. Paul",
-      "Edina",
-      "Richfield",
-      "Bloomington"
-    ],
+    "cityTarget": ["Minneapolis", "St. Paul", "Fridley", "Anoka"],
     "includes": [
       "Fine dust wipe-downs",
       "Detail vacuuming (vents, tracks)",
