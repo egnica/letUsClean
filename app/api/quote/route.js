@@ -57,7 +57,7 @@ export async function POST(req) {
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: "Too many requests. Please try again later." },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -66,7 +66,7 @@ export async function POST(req) {
     if (!ok) {
       return NextResponse.json(
         { error: `Invalid request: ${errs.join(", ")}` },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -90,7 +90,7 @@ export async function POST(req) {
 
     // --- User confirmation ---
     await resend.emails.send({
-      from: "Let Us Clean MN <nick@nicholasegner.com>",
+      from: "Let Us Clean MN <<info@letuscleanmn.com>",
       to: email,
       subject: "We received your quote request — Let Us Clean MN",
       text:
@@ -105,7 +105,7 @@ export async function POST(req) {
     console.error("Quote API error:", err);
     return NextResponse.json(
       { error: "Server error. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
