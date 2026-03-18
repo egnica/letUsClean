@@ -208,8 +208,23 @@ export default function Home() {
           </div>
           <QuoteForm />
         </div>
-        <br />
-        <br />
+
+        <section className={styles.servicesCont}>
+          <h2 style={{ margin: 0 }}>Employment Opportunities</h2>
+          <h4 style={{ margin: "0 0 15px 0" }}>
+            Interested in joining the team?
+          </h4>
+          <a href="mailto:info@letuscleanmn.com">
+            <div className={styles.jobBtnContain}>
+              <div
+                style={{ maxWidth: "100px", textAlign: "center" }}
+                className={styles.heroButton}
+              >
+                Contact Us Here!
+              </div>
+            </div>
+          </a>
+        </section>
         <section className={styles.downloadableCont}>
           <h2>Downloadable Materials</h2>
           <div className={styles.twoBtn}>

@@ -888,3 +888,7 @@
   margin: 0;
   padding: 0;
 }
+.jobBtnContain {
+  display: grid;
+  place-content: center;
+}
