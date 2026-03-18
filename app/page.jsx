@@ -220,7 +220,7 @@ export default function Home() {
                 style={{ maxWidth: "100px", textAlign: "center" }}
                 className={styles.heroButton}
               >
-                Contact Us Here!
+                Contact Us!
               </div>
             </div>
           </a>
