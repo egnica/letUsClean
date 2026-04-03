@@ -8,11 +8,16 @@ const SERVICE_TYPES = Services.filter((s) => s.shortTitle).map(
   (s) => s.shortTitle,
 );
 
-export default function QuoteForm() {
+export default function fullForm() {
   const [form, setForm] = useState({
     name: "",
     email: "",
     serviceType: "",
+    address: "",
+    length: "",
+    footage: "",
+    petsChildren: "",
+    proCleaned: "",
     message: "",
     company: "", // honeypot
   });
@@ -31,6 +36,22 @@ export default function QuoteForm() {
     if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
       return "Please enter a valid email.";
     if (!form.serviceType) return "Please select a service type.";
+
+    if (!form.address || form.address.trim().length < 2)
+      return "Please enter your city or address.";
+
+    if (!form.length || form.length.trim().length < 1)
+      return "How long have you lived in your home.";
+
+    if (!form.length || form.footage.trim().length < 1)
+      return "Please enter your square footage.";
+
+    if (!form.petsChildren || form.petsChildren.trim().length < 2)
+      return "Please tell us if you have any pets or children.";
+
+    if (!form.proCleaned || form.proCleaned.trim().length < 2)
+      return "Please tell us if you have had you place professionally cleaned.";
+
     if (!form.message || form.message.trim().length < 10)
       return "Please provide a few details (10+ characters).";
     if (form.company) return "Spam detected."; // honeypot filled in
@@ -47,13 +68,18 @@ export default function QuoteForm() {
     setStatus({ state: "loading", message: "" });
 
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch("api/fullQuote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim(),
           serviceType: form.serviceType,
+          address: form.address,
+          length: form.length,
+          footage: form.footage,
+          petsChildren: form.petsChildren,
+          proCleaned: form.proCleaned,
           message: form.message.trim(),
           sourceUrl: typeof window !== "undefined" ? window.location.href : "",
         }),
@@ -72,6 +98,11 @@ export default function QuoteForm() {
         name: "",
         email: "",
         serviceType: "",
+        address: "",
+        length: "",
+        footage: "",
+        petsChildren: "",
+        proCleaned: "",
         message: "",
         company: "",
       });
@@ -156,8 +187,87 @@ export default function QuoteForm() {
       </div>
 
       <div className={styles.field}>
+        <label htmlFor="address">
+          The house location (city or address)
+          <span className={styles.req}>*</span>
+        </label>
+        <input
+          id="address"
+          name="address"
+          type="text"
+          value={form.address}
+          onChange={handleChange}
+          placeholder="Address"
+          required
+        />
+      </div>
+      <div className={styles.field}>
+        <label htmlFor="length">
+          How long have you lived in your home?
+          <span className={styles.req}>*</span>
+        </label>
+        <input
+          id="length"
+          name="length"
+          type="text"
+          value={form.length}
+          onChange={handleChange}
+          placeholder="Years"
+          required
+        />
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="footage">
+          Estimated square footage to be cleaned.
+          <span className={styles.req}>*</span>
+        </label>
+        <input
+          id="footage"
+          name="footage"
+          type="text"
+          value={form.footage}
+          onChange={handleChange}
+          placeholder="Exclude footage that will not be cleaned"
+          required
+        />
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="petsChildren">
+          Do pets or children live in your home?
+          <span className={styles.req}>*</span>
+        </label>
+        <input
+          id="petsChildren"
+          name="petsChildren"
+          type="text"
+          value={form.petsChildren}
+          onChange={handleChange}
+          placeholder="Please Describe"
+          required
+        />
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="proCleaned">
+          Has your home ever been professionally cleaned?
+          <span className={styles.req}>*</span>
+        </label>
+        <input
+          id="proCleaned"
+          name="proCleaned"
+          type="text"
+          value={form.proCleaned}
+          onChange={handleChange}
+          placeholder="Yes/No"
+          required
+        />
+      </div>
+
+      <div className={styles.field}>
         <label htmlFor="message">
-          Details<span className={styles.req}>*</span>
+          More Details<span className={styles.req}>*</span>
         </label>
         <textarea
           id="message"
@@ -165,7 +275,7 @@ export default function QuoteForm() {
           rows={6}
           value={form.message}
           onChange={handleChange}
-          placeholder="Beds/baths, approx. SF, pets, preferred timing, special requests…"
+          placeholder="Allergies or sensitivities. Other areas of concern "
           required
         />
       </div>
