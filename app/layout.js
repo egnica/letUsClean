@@ -78,10 +78,27 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
+        {/* Google Analytics Tracking Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-C7ZHJLJZLT"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C7ZHJLJZLT');
+          `}
+        </Script>
+
         {children}
+
         <footer>
           <Footer />
         </footer>
+
         <Script
           id="global-schema"
           type="application/ld+json"
