@@ -27,12 +27,21 @@ function footer() {
           <p style={{ textAlign: "center" }}>
             Qualified professionals for each service you are looking for!
           </p>
-          <p style={{ textAlign: "center" }}>612.991.2832 | info@letuscleanmn.com</p>
+          <p style={{ textAlign: "center" }}>
+            612.991.2832 | info@letuscleanmn.com
+          </p>
         </div>
       </div>
-     
-        
-    
+      <div style={{ display: "grid", placeContent: "center" }}>
+        <p style={{ textAlign: "center" }}>Interested in joining the team? </p>
+        <div
+          style={{ maxWidth: "100px", textAlign: "center", margin: "auto" }}
+          className={styles.heroButton}
+        >
+          Contact Us!
+        </div>
+      </div>
+      <br />
       <div className={styles.bottomFooter}>
         <p>© Let Us Clean LLC {currentYear} | powered by:&nbsp;&nbsp; </p>
         <a href="https:nicholasegner.com" target="_blank">

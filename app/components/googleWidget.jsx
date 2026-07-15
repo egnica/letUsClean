@@ -31,13 +31,28 @@ export default function GoogleReviewsWidget() {
         <Star />
         <Star />
         <Star />
-        <div>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+
+            justifyContent: "center",
+          }}
+        >
           <a
             href="https://g.page/r/CblAdYGgd-A4EAE/review"
             target="_blank"
             rel="noopener noreferrer"
           >
             <button className={styles.heroButton}>Leave a Review!</button>
+          </a>
+
+          <a
+            href="https://maps.app.goo.gl/3b2cBzhVvytGuWQt6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className={styles.heroButton}>Read Reviews!</button>
           </a>
         </div>
         <br />
